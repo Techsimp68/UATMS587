@@ -18,6 +18,14 @@ header {
   background-color: #111111;
 }
 
+.heroSection{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  grid-row: 1fr 1fr;
+}
+
 header img {
   height: auto;
   width: 250px;
@@ -46,10 +54,10 @@ h1 {
   margin-bottom: 0.5rem;
 }
 
-h3 {
-  justify-content: center;
-  
+h2{
+  align-items: center;
 }
+
 h4 {
   font-size: 1.25rem;
   font-weight: 400;
@@ -67,6 +75,8 @@ button {
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s;
+  height: 50px;
+  width: 150px;
 }
 
 button:hover {
