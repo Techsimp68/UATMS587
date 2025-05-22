@@ -18,12 +18,39 @@ header {
   background-color: #111111;
 }
 
-.heroSection{
+.heroSection {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  padding: 20px;
-  grid-row: 1fr 1fr;
+  grid-template-columns: 1fr auto; /* Text section grows, image stays natural size */
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+.heroSection div {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.heroSection button {
+  background-color: #ff3c28;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.heroSection button:hover {
+  box-shadow: 0 0 12px rgba(255, 60, 40, 0.5);
+}
+
+.Vantacore-bodyIcon {
+  justify-self: center;
 }
 
 header img {
