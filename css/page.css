@@ -52,7 +52,7 @@ body {
   color: #ff3c28;
 }
 .hero-banner img {
-  width: 100%;
+  width: 100hv;
   height: auto;
   display: block;
 }
