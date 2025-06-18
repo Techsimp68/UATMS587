@@ -46,17 +46,12 @@ body {
 .sticky-nav a:hover {
   color: #ff3c28;
 }
-.hero-section {
-  width: 100vh; /* Full screen height */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
+.hero-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
+
 
 nav ul {
   display: flex;
