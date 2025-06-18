@@ -5,9 +5,14 @@
 }
 
 body {
+  background: url('../images/VantacoreHome.PNG');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
   background-color: #0a0a0a;
   color: #f0f0f0;
   font-family: 'Inter', sans-serif;
+  
 }
 
 .sticky-nav {
