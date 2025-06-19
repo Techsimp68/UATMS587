@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VantaCore | Services</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #0a0a0a;
+      color: #fff;
+      font-family: 'Courier New', monospace;
+    }
+
+    .terminal-banner {
+      padding: 80px 20px;
+      text-align: center;
+      color: #00ff88;
+      font-size: 1.2rem;
+    }
+
+    .cursor {
+      display: inline-block;
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 60px 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .service-card {
+      background-color: #141414;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 30px 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 0 12px 2px #ff0033;
+      transform: translateY(-5px);
+    }
+
+    .service-card h3 {
+      margin-bottom: 10px;
+      color: #ff0033;
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.85rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Terminal Style Intro -->
+  <section class="terminal-banner">
+    <span id="typed-text"></span><span class="cursor">█</span>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="services-grid">
+    <div class="service-card">
+      <h3>Games & Tools</h3>
+      <p>Custom game mechanics, AI companions, and retro-inspired engines.</p>
+    </div>
+    <div class="service-card">
+      <h3>Web & Software</h3>
+      <p>SaaS dashboards, Flask/Python apps, automation, and backend dev.</p>
+    </div>
+    <div class="service-card">
+      <h3>AI & Simulation</h3>
+      <p>Story engines, AI chatbots, ONNX/LLM-based tools, and speech tech.</p>
+    </div>
+    <div class="service-card">
+      <h3>Creative Media</h3>
+      <p>Avatar generation, animated UI mockups, and anime-style UX design.</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 VantaCore. Forging Innovative Digital Solutions.
+  </footer>
+
+  <!-- Typewriter JS -->
+  <script>
+    const text = `> Initializing VantaCore Services...\n> Loading: AI & Simulation, Games & Tools, Media & Avatars...\n> Ready.`;
+    const typedText = document.getElementById("typed-text");
+    let i = 0;
+
+    function typeLine() {
+      if (i < text.length) {
+        if (text[i] === "\n") {
+          typedText.innerHTML += "<br>";
+        } else {
+          typedText.innerHTML += text[i];
+        }
+        i++;
+        setTimeout(typeLine, 40);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", typeLine);
+  </script>
+
+</body>
+</html>
