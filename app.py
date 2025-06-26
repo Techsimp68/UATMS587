@@ -11,6 +11,7 @@ supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 
 @app.route('/')
+@app.route('/index')
 def home():
     return render_template('index.html')
 @app.route('/contact')
