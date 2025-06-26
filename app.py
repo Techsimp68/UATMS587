@@ -9,6 +9,11 @@ SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
+
+@app.route('/')
+def home():
+    return render_template('index.html')
+    
 @app.route('/projects')
 def get_projects():
     response = supabase.table('projects').select("*").execute()
