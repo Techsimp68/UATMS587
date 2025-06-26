@@ -27,7 +27,7 @@ def projects():
     return render_template('projects.html')
     
 @app.route('/services')
-def about():
+def services():
     return render_template('Services.html')
 
 @app.route('/projects')
