@@ -92,6 +92,20 @@
     button[type="submit"]:hover {
       background-color: #cc002a;
     }
+    .checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: normal;
+}
+
   </style>
 </head>
 <body>
@@ -131,11 +145,14 @@
       </select>
 
       <div id="gameFields" class="hidden">
-        <label>Console:</label>
-<label><input type="checkbox" name="game_platforms" value="PC" /> PC</label>
-<label><input type="checkbox" name="game_platforms" value="Xbox" /> Xbox</label>
-<label><input type="checkbox" name="game_platforms" value="PlayStation" /> PlayStation</label>
-<label><input type="checkbox" name="game_platforms" value="Mobile" /> Mobile</label>
+       <label>Console:</label>
+<div class="checkbox-group">
+  <label><input type="checkbox" name="game_platforms" value="PC" /> PC</label>
+  <label><input type="checkbox" name="game_platforms" value="Xbox" /> Xbox</label>
+  <label><input type="checkbox" name="game_platforms" value="PlayStation" /> PlayStation</label>
+  <label><input type="checkbox" name="game_platforms" value="Mobile" /> Mobile</label>
+</div>
+
 
         <label>Timeframe:</label>
         <input type="text" name="game_timeframe" />
