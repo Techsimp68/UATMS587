@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VantaCore | Projects</title>
+  <style>
+    body {
+      margin: 0;
+      background: url('../static/images/projectBackground.png') center/cover no-repeat fixed;
+      font-family: 'Courier New', monospace;
+      color: #fff;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: -1;
+    }
+
+    header {
+      padding: 20px 40px;
+      background-color: #111;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 30px;
+      font-size: 0.95rem;
+    }
+
+    .page-title {
+      text-align: center;
+      margin-top: 60px;
+      font-size: 2rem;
+      color: #ff0033;
+    }
+
+    .projects-section {
+      padding: 40px;
+    }
+
+    .section-title {
+      color: #ff0033;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #333;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .project-card {
+      background-color: rgba(15, 15, 15, 0.95);
+      border-radius: 12px;
+      padding: 30px 20px;
+      border: 1px solid #333;
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      box-shadow: 0 0 15px #ff0033;
+      transform: scale(1.03);
+    }
+
+    .project-card h3 {
+      margin-bottom: 8px;
+      color: #ff0033;
+    }
+
+    .project-card .status {
+      color: #ffaa00;
+      font-size: 0.9rem;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #ccc;
+    }
+
+    .project-card a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #61dafb;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.85rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div style="font-weight: bold; color: white;">VANTACORE</div>
+    <nav>
+      <a href="./index.html">Home</a>
+      <a href="./Services.html">Services</a>
+      <a href="./about.html">About</a>
+      <a href="./contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <h1 class="page-title">Our Projects</h1>
+
+  {% for section_title, projects in grouped_projects.items() %}
+    <section class="projects-section">
+      <div class="section-title">{{ section_title }}</div>
+      {% if projects %}
+        <div class="projects-grid">
+          {% for project in projects %}
+            <div class="project-card">
+              <h3>{{ project.name }}</h3>
+              <div class="status">({{ project.status }})</div>
+              <p>{{ project.description }}</p>
+              {% if project.link_url %}
+                <a href="{{ project.link_url }}" target="_blank">View Project</a>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <p style="color: #aaa; font-style: italic;">No projects in this category yet.</p>
+      {% endif %}
+    </section>
+  {% endfor %}
+
+  <footer>
+    &copy; 2025 VantaCore. Forging Innovative Digital Solutions.
+  </footer>
+
+</body>
+</html>
