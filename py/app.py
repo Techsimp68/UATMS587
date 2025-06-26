@@ -14,19 +14,22 @@ def get_projects():
     response = supabase.table('projects').select("*").execute()
     projects = response.data
 
-    # Group by category
     grouped = {
-        "Professional": [],
-        "Hobby": [],
-        "School": []
+        "Professional Work": [],
+        "Hobby Projects": [],
+        "School Projects": []
     }
 
     for project in projects:
-        cat = project['category']
-        if cat in grouped:
-            grouped[cat].append(project)
+        cat = project.get("category", "").lower()
+        if "professional" in cat:
+            grouped["Professional Work"].append(project)
+        elif "hobby" in cat:
+            grouped["Hobby Projects"].append(project)
+        elif "school" in cat:
+            grouped["School Projects"].append(project)
 
     return render_template("projects.html", grouped_projects=grouped)
-
+    
 if __name__ == '__main__':
     app.run(debug=True)
