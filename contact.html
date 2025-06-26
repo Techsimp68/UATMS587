@@ -131,13 +131,11 @@
       </select>
 
       <div id="gameFields" class="hidden">
-        <label>Console (hold Ctrl/Cmd to select multiple):</label>
-        <select multiple name="game_platforms">
-          <option value="PC">PC</option>
-          <option value="Xbox">Xbox</option>
-          <option value="PlayStation">PlayStation</option>
-          <option value="Mobile">Mobile</option>
-        </select>
+        <label>Console:</label>
+<label><input type="checkbox" name="game_platforms" value="PC" /> PC</label>
+<label><input type="checkbox" name="game_platforms" value="Xbox" /> Xbox</label>
+<label><input type="checkbox" name="game_platforms" value="PlayStation" /> PlayStation</label>
+<label><input type="checkbox" name="game_platforms" value="Mobile" /> Mobile</label>
 
         <label>Timeframe:</label>
         <input type="text" name="game_timeframe" />
@@ -201,9 +199,6 @@
       appFields.classList.toggle('hidden', value !== 'Application');
     });
   </script>
-
-</body>
-</html>
 
 </body>
 </html>
