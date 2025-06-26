@@ -12,7 +12,7 @@ supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_templates('index.html')
     
 @app.route('/projects')
 def get_projects():
@@ -34,7 +34,7 @@ def get_projects():
         elif "school" in cat:
             grouped["School Projects"].append(project)
 
-    return render_template("projects.html", grouped_projects=grouped)
+    return render_templates("projects.html", grouped_projects=grouped)
 
 
 @app.route('/submit-contact', methods=['POST'])
