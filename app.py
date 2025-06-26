@@ -20,11 +20,6 @@ def contact():
 @app.route('/about')
 def about():
     return render_template('about.html')
-
-@app.route('/projects')
-def projects():
-    # Optional: logic to load data
-    return render_template('projects.html')
     
 @app.route('/services')
 def services():
