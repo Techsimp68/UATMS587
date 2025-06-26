@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Vantacore</title>
+  <style>
+    @keyframes pulseShadow {
+  0% {
+    box-shadow: 0 0 12px rgba(255, 60, 40, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 60, 40, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 12px rgba(255, 60, 40, 0.3);
+  }
+}
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #f5f5f5;
+      margin: 0;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    h1 {
+      font-size: 3rem;
+      color: #ff3c28;
+    }
+    img {
+      max-width: 200px;
+      margin-top: 1rem;
+    }
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1rem;
+      background: #1e1e1e;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(255, 60, 40, 0.4);
+      animation: pulseShadow 5s infinite ease-in-out;
+    }
+    .highlight {
+      color: #ff3c28;
+      font-weight: bold;
+    }
+    .mascot {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .sticky-nav {
+  position: sticky;
+  top: 0;
+  background-color: #121212e6;
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-logo {
+  height: 150px;
+  width: auto;
+}
+
+.sticky-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.sticky-nav a {
+  color: #f5f5f5;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.sticky-nav a:hover {
+  color: #ff3c28;
+}
+  </style>
+</head>
+<body>
+    <nav class="sticky-nav">
+            <img src="../static/images/Vantacore.png" alt="Vantacore logo" width="500" height="100" loading="lazy" title="Vantacore logo" class="nav-logo">
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./Services.html">Services</a></li>
+                <li><a href="./projects.html">Projects</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+  <header>
+    <h1>About Vantacore</h1>
+    <p><em>Where creativity meets code... and anime memes.</em></p>
+  </header>
+
+  <section>
+    <p>Hey there! I'm the creator behind <span class="highlight">Vantacore</span> — a developer with over a decade of experience in IT and the last few years poured straight into turning lack of sleep into working code. My passions? <span class="highlight">Game development</span>, <span class="highlight">mobile apps</span>, and exploring the cutting edge of <span class="highlight">AI</span>... all with a controller nearby and an anime tab open.</p>
+
+    <p>Vantacore isn't your typical tech company. It's run by a goofy, anime-loving gamer who believes there's no reason professionalism should feel like a suit-and-tie cage. We're building a space where you can be yourself — whether you're a developer, artist, or just someone with an idea itching to come to life.</p>
+
+    <p>Let’s talk games. It’s no secret: today’s releases often feel hollow, rushed, or just carbon copies of what came before. But remember the golden era? Unique mechanics, unforgettable characters, passion in every pixel? At Vantacore, we're setting out to bring that spirit back. </p>
+
+    <p>If you’ve ever said, “I have a great idea for a game, but I don’t know how to make it,” then you’re in the right place. <span class="highlight">Reach out through our Contact page</span>. We want to help bring your dream to life — whether it's a mobile idle RPG, a VR rhythm slasher, or the next couch co-op classic.</p>
+
+    <div class="mascot">
+      <h2>Meet Our Mascot: <span class="highlight">Wolfie*</span></h2>
+      <img src="../static/images/wolfMascot.png" alt="Wolfie Mascot" />
+      <p>*Okay okay, we're still working on a better name. Suggestions welcome.</p>
+      <p>Wolfie embodies everything we stand for — energy, creativity, and just the right amount of mischief. You'll find them all over our site, cheering you on or maybe just blasting some React-powered Kamehameha.</p>
+    </div>
+
+    <p>So welcome to Vantacore. We may not be a "serious" company... but we take your ideas — and fun — very seriously.</p>
+  </section>
+  
+    
+        
+        
+</body>
+</html>
