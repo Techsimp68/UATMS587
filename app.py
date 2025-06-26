@@ -22,7 +22,7 @@ def contact():
 def about():
     return render_template('about.html')
     
-@app.route('/services')
+@app.route('/Services')
 def services():
     return render_template('Services.html')
 
