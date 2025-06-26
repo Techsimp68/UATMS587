@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>VantaCore | Projects</title>
   <style>
     body {
@@ -43,13 +43,22 @@
       color: #ff0033;
     }
 
+    .projects-section {
+      padding: 40px;
+    }
+
+    .section-title {
+      color: #ff0033;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #333;
+    }
+
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
-      padding: 60px 40px;
-      max-width: 1200px;
-      margin: auto;
+      margin-top: 20px;
     }
 
     .project-card {
@@ -83,6 +92,14 @@
       color: #ccc;
     }
 
+    .project-card a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #61dafb;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+
     footer {
       text-align: center;
       padding: 40px 20px;
@@ -105,33 +122,27 @@
 
   <h1 class="page-title">Our Projects</h1>
 
-  <section class="projects-grid">
-    <div class="project-card">
-      <h3>VantaCore Fitness App</h3>
-      <div class="status">(In Process)</div>
-      <p>React Native app using OpenAI + ONNX for dynamic workouts, health tracking, and gamified progress.</p>
-    </div>
-    <div class="project-card">
-      <h3>The Adventure (RPG Game)</h3>
-      <div class="status">(In Process)</div>
-      <p>2D narrative-driven RPG built with Godot. Includes dynamic AI events, player growth, and exploration mechanics.</p>
-    </div>
-    <div class="project-card">
-      <h3>Workout & Meal Planner SaaS</h3>
-      <div class="status">(In Process)</div>
-      <p>Web-based platform to generate meal plans and workouts powered by GPT + ONNX. Subscription-ready SaaS stack.</p>
-    </div>
-    <div class="project-card">
-      <h3>VantaCore Website</h3>
-      <div class="status">(In Process)</div>
-      <p>This website! Built from scratch using HTML, CSS, JS, and Flask. Features terminal themes and dynamic project pages.</p>
-    </div>
-    <div class="project-card">
-      <h3>Inventory Tracking App</h3>
-      <div class="status">(In Process)</div>
-      <p>Tool for small businesses to track and audit inventory. Includes barcode support, SQL backend, and future API export features.</p>
-    </div>
-  </section>
+  {% for section_title, projects in grouped_projects.items() %}
+    <section class="projects-section">
+      <div class="section-title">{{ section_title }}</div>
+      {% if projects %}
+        <div class="projects-grid">
+          {% for project in projects %}
+            <div class="project-card">
+              <h3>{{ project.name }}</h3>
+              <div class="status">({{ project.status }})</div>
+              <p>{{ project.description }}</p>
+              {% if project.link_url %}
+                <a href="{{ project.link_url }}" target="_blank">View Project</a>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <p style="color: #aaa; font-style: italic;">No projects in this category yet.</p>
+      {% endif %}
+    </section>
+  {% endfor %}
 
   <footer>
     &copy; 2025 VantaCore. Forging Innovative Digital Solutions.
