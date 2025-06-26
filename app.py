@@ -13,7 +13,23 @@ supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 @app.route('/')
 def home():
     return render_template('index.html')
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/projects')
+def projects():
+    # Optional: logic to load data
+    return render_template('projects.html')
     
+@app.route('/services')
+def about():
+    return render_template('Services.html')
+
 @app.route('/projects')
 def get_projects():
     response = supabase.table('projects').select("*").execute()
