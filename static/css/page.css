@@ -27,6 +27,55 @@ body {
     opacity: 0.95;
   }
 }
+/* Hide hamburger on desktop */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    z-index: 1001;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #111;
+    position: absolute;
+    top: 80px;
+    right: 10px;
+    width: 200px;
+    border: 1px solid #ff0033;
+    z-index: 1000;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 15px 0;
+    text-align: center;
+  }
+
+  .nav-logo {
+    width: 200px;
+    height: auto;
+  }
+
+  nav ul {
+    padding-left: 0;
+  }
+}
 
 .sticky-nav {
   position: sticky;
