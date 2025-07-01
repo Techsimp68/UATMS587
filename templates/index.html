@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="desktop-layout">
         <nav class="sticky-nav">
              <img src="../static/images/Vantacore.png" alt="Vantacore logo" width="500" height="100" loading="lazy" title="Vantacore logo" class="nav-logo">
             <ul class="nav-links" id="nav-links">
@@ -69,6 +70,46 @@ My passion lies in turning abstract ideas into functional, elegant code—whethe
     <p>A work out app that uses react</p>
   </div>
   <!--Another place holder for future cards-->
+</div>
+    </div>
+ <!-- Hamburger Navigation (only the nav menu) -->
+  <nav class="mobile-nav">
+    <div class="nav-header">
+      <div class="nav-title">VANTACORE</div>
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </div>
+    <ul class="nav-links" id="mobileMenu">
+      <li><a href="/about">About</a></li>
+      <li><a href="/Services">Services</a></li>
+      <li><a href="/projects">Projects</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+    
+  <!-- Hero Section (headline + tagline) -->
+  <section class="mobile-hero">
+    <h1>VANTACORE</h1>
+    <h2>From the void we build</h2>
+  </section>
+    
+  <section class="mobile-cards">
+    <div class="card">
+      <h3>Product Development</h3>
+      <p>Designing and building cutting-edge digital experiences.</p>
+    </div>
+    <div class="card">
+      <h3>Tech Consulting</h3>
+      <p>Strategic guidance tailored to your business goals.</p>
+    </div>
+    <div class="card">
+      <h3>The Lost Adventurer</h3>
+      <p>An RPG style game</p>
+    </div>
+    <div class="card">
+      <h3>React Workout App</h3>
+      <p>A workout app that uses React</p>
+    </div>
+  </section>
 </div>
 <!-- Link CSS -->
 <link rel="stylesheet" href="../static/css/cards.css">
