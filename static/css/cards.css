@@ -71,3 +71,58 @@
   font-size: 0.95rem;
   line-height: 1.5;
 }
+
+/* Default: Desktop layout visible */
+#desktop-layout {
+  display: block;
+}
+
+#mobile-layout {
+  display: none;
+}
+
+/* On screens <= 768px, show mobile layout only */
+@media screen and (max-width: 768px) {
+  #desktop-layout {
+    display: none;
+  }
+
+  #mobile-layout {
+    display: block;
+    background-color: black;
+    color: white;
+    padding: 20px;
+    font-family: 'Courier New', monospace;
+  }
+
+  .mobile-nav h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #ff0033;
+  }
+
+  .mobile-nav h2 {
+    text-align: center;
+    font-size: 1rem;
+    color: #ccc;
+    margin-bottom: 20px;
+  }
+
+  .mobile-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .mobile-cards .card {
+    border: 2px solid #ff0033;
+    padding: 15px;
+    animation: pulseBorder 4s infinite;
+  }
+
+  @keyframes pulseBorder {
+    0% { border-color: #ff0033; }
+    50% { border-color: #ff3366; }
+    100% { border-color: #ff0033; }
+  }
+}
