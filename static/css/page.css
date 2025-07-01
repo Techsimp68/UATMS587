@@ -149,3 +149,80 @@ p {
   max-width: 700px;
   margin: 0 auto;
 }
+
+/* Card glow effect */
+.card {
+  background-color: #111;
+  border: 2px solid transparent;
+  padding: 20px;
+  transition: border 1.5s ease-in-out;
+}
+
+/* Add breathing red border */
+@keyframes pulseBorder {
+  0% { border-color: #ff0033; }
+  50% { border-color: #ff3366; }
+  100% { border-color: #ff0033; }
+}
+
+.card {
+  animation: pulseBorder 4s infinite;
+}
+
+/* Mobile-specific simplification */
+@media screen and (max-width: 768px) {
+  /* Replace hero image with text */
+  .hero-banner img {
+    display: none;
+  }
+
+  .hero-banner::before {
+    content: "VANTACORE";
+    display: block;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff0033;
+    margin-top: 40px;
+  }
+
+  .hero-banner::after {
+    content: "From the void we build";
+    display: block;
+    text-align: center;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #ccc;
+    margin-bottom: 40px;
+  }
+
+  /* Hide all card images */
+  .card .icon img {
+    display: none;
+  }
+
+  .card {
+    background-color: transparent;
+    border: 2px solid #ff0033;
+    padding: 15px;
+    margin: 10px;
+    box-shadow: none;
+  }
+
+  /* Simplify nav */
+  nav img {
+    width: 150px;
+    height: auto;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  }
+
+  nav li {
+    margin: 5px 0;
+  }
+}
