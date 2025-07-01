@@ -149,3 +149,38 @@ p {
   max-width: 700px;
   margin: 0 auto;
 }
+
+/* Mobile layout only */
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: black;
+    padding: 10px;
+    border-top: 1px solid #ff0033;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .hamburger {
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+  }
+
+  .mobile-hero h1 {
+    font-size: 2rem;
+    text-align: center;
+    color: #ff0033;
+  }
+
+  .mobile-hero h2 {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 20px;
+  }
+}
+
