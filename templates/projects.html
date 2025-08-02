@@ -131,14 +131,6 @@
       color: #ccc;
     }
 
-    .project-card a {
-      display: inline-block;
-      margin-top: 10px;
-      color: #61dafb;
-      text-decoration: none;
-      font-size: 0.85rem;
-    }
-
     footer {
       text-align: center;
       padding: 40px 20px;
@@ -209,27 +201,66 @@
 
   <h1 class="page-title">Our Projects</h1>
 
-  {% for section_title, projects in grouped_projects.items() %}
-    <section class="projects-section">
-      <div class="section-title">{{ section_title }}</div>
-      {% if projects %}
-        <div class="projects-grid">
-          {% for project in projects %}
-            <div class="project-card">
-              <h3>{{ project.name }}</h3>
-              <div class="status">({{ project.status }})</div>
-              <p>{{ project.description }}</p>
-              {% if project.link_url %}
-                <a href="{{ project.link_url }}" target="_blank">View Project</a>
-              {% endif %}
-            </div>
-          {% endfor %}
-        </div>
-      {% else %}
-        <p style="color: #aaa; font-style: italic;">No projects in this category yet.</p>
-      {% endif %}
-    </section>
-  {% endfor %}
+  <!-- School Projects -->
+  <section class="projects-section">
+    <div class="section-title">School</div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>C++ Student Lookup Tool</h3>
+        <div class="status">(Completed)</div>
+        <p>College tool to look up students using C++.</p>
+      </div>
+      <div class="project-card">
+        <h3>Network Scanner</h3>
+        <div class="status">(Completed)</div>
+        <p>Tool to see active devices on network using Python.</p>
+      </div>
+      <div class="project-card">
+        <h3>Troubleshooting Assistant</h3>
+        <div class="status">(Completed)</div>
+        <p>Computer troubleshooting tool built in C#.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Professional Projects -->
+  <section class="projects-section">
+    <div class="section-title">Professional</div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>VantaCore Website</h3>
+        <div class="status">(Completed)</div>
+        <p>This website... duh.</p>
+      </div>
+      <div class="project-card">
+        <h3>SoloStack</h3>
+        <div class="status">(In Progress)</div>
+        <p>SaaS tool to help solo developers track income, taxes, and salary.</p>
+      </div>
+      <div class="project-card">
+        <h3>ForgeWell</h3>
+        <div class="status">(Planned)</div>
+        <p>SaaS fitness app with AI workout recommendations and tracking.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hobby Projects -->
+  <section class="projects-section">
+    <div class="section-title">Hobby</div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>AI Assistant</h3>
+        <div class="status">(In Progress)</div>
+        <p>Offline-first AI assistant with emotion, voice, and task support.</p>
+      </div>
+      <div class="project-card">
+        <h3>Snake (Rust)</h3>
+        <div class="status">(Completed)</div>
+        <p>Command line snake game written in Rust for learning purposes.</p>
+      </div>
+    </div>
+  </section>
 
   <footer>
     &copy; 2025 VantaCore. Forging Innovative Digital Solutions.
@@ -238,7 +269,6 @@
   <script>
     const toggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
-
     toggle.addEventListener('click', () => {
       navLinks.classList.toggle('active');
     });
