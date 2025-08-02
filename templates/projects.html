@@ -8,24 +8,8 @@
     body {
       margin: 0;
       font-family: 'Courier New', monospace;
-      color: #fff;
       background-color: #0a0a0a;
-    }
-
-    /* Disable background image on mobile */
-    @media (min-width: 769px) {
-      body {
-        background: url('../static/images/projectBackground.png') center/cover no-repeat fixed;
-        position: relative;
-      }
-
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.55);
-        z-index: -1;
-      }
+      color: #fff;
     }
 
     header {
@@ -68,12 +52,14 @@
 
     .projects-section {
       padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .section-title {
       color: #ff0033;
       font-size: 1.5rem;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       border-bottom: 1px solid #333;
     }
 
@@ -81,46 +67,39 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
-      margin-top: 20px;
+      margin-top: 10px;
     }
 
     .project-card {
-      background-color: rgba(15, 15, 15, 0.95);
+      background-color: #141414;
+      border: 1px solid #333;
       border-radius: 12px;
       padding: 30px 20px;
-      border: 1px solid #333;
+      text-align: center;
       transition: all 0.3s ease;
     }
 
     .project-card:hover {
-      box-shadow: 0 0 15px #ff0033;
-      transform: scale(1.03);
+      box-shadow: 0 0 12px 2px #ff0033;
+      transform: translateY(-5px);
     }
 
     .project-card h3 {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       color: #ff0033;
+      font-size: 1.2rem;
     }
 
     .project-card .status {
-      color: #ffaa00;
       font-size: 0.9rem;
       font-style: italic;
       margin-bottom: 10px;
+      color: #ffaa00;
     }
 
     .project-card p {
-      font-size: 0.9rem;
-      line-height: 1.5;
+      font-size: 0.95rem;
       color: #ccc;
-    }
-
-    .project-card a {
-      display: inline-block;
-      margin-top: 10px;
-      color: #61dafb;
-      text-decoration: none;
-      font-size: 0.85rem;
     }
 
     footer {
@@ -130,7 +109,6 @@
       color: #888;
     }
 
-    /* Improve spacing on mobile */
     @media (max-width: 480px) {
       .page-title {
         font-size: 1.5rem;
@@ -155,3 +133,80 @@
 
   <header>
     <div>VANTACORE</div>
+    <nav>
+      <a href="/index">Home</a>
+      <a href="/Services">Services</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </header>
+
+  <h1 class="page-title">Our Projects</h1>
+
+  <!-- SCHOOL PROJECTS -->
+  <section class="projects-section">
+    <div class="section-title">School</div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>C++ Student Lookup Tool</h3>
+        <div class="status">Completed</div>
+        <p>College tool to look up students using C++.</p>
+      </div>
+      <div class="project-card">
+        <h3>Network Scanner</h3>
+        <div class="status">Completed</div>
+        <p>Tool to see active devices on network using Python.</p>
+      </div>
+      <div class="project-card">
+        <h3>Troubleshooting Assistant</h3>
+        <div class="status">Completed</div>
+        <p>Computer troubleshooting tool built in C#.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFESSIONAL PROJECTS -->
+  <section class="projects-section">
+    <div class="section-title">Professional</div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>VantaCore Website</h3>
+        <div class="status">Completed</div>
+        <p>This website... duh.</p>
+      </div>
+      <div class="project-card">
+        <h3>SoloStack</h3>
+        <div class="status">In Progress</div>
+        <p>SaaS tool to help solo developers track income, taxes, and salary.</p>
+      </div>
+      <div class="project-card">
+        <h3>ForgeWell</h3>
+        <div class="status">Planned</div>
+        <p>SaaS fitness app with AI workout recommendations and tracking.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOBBY PROJECTS -->
+  <section class="projects-section">
+    <div class="section-title">Hobby</div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>AI Assistant</h3>
+        <div class="status">In Progress</div>
+        <p>Offline-first AI assistant with emotion, voice, and task support.</p>
+      </div>
+      <div class="project-card">
+        <h3>Snake (Rust)</h3>
+        <div class="status">Completed</div>
+        <p>Command line snake game written in Rust for learning purposes.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 VantaCore. Forging Innovative Digital Solutions.
+  </footer>
+
+</body>
+</html>
