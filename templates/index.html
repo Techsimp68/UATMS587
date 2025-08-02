@@ -37,8 +37,11 @@
     }
 
     .nav-logo {
-      height: 60px;
-    }
+  height: auto;
+  max-height: 100px;
+  max-width: 120px;
+  display: block;
+}
 
     .nav-links {
       list-style: none;
@@ -117,6 +120,10 @@
     @media screen and (max-width: 768px) {
       .hero-banner img {
         display: none;
+        .nav-logo {
+  height: auto;
+  max-height: 80px;
+}
       }
 
       .hero-text {
@@ -232,3 +239,4 @@
   </script>
 </body>
 </html>
+
