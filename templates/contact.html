@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact VantaCore</title>
   <style>
     body {
@@ -10,23 +10,37 @@
       font-family: 'Courier New', monospace;
       background-color: #0b0b0f;
       color: #fff;
-      position: relative;
     }
 
     header {
-      padding: 20px 40px;
+      padding: 20px;
       background-color: #111;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #333;
     }
 
-    header a {
+    header div {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    nav a {
       color: #fff;
       text-decoration: none;
-      margin-left: 30px;
       font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: #ff0033;
     }
 
     .page-title {
@@ -39,14 +53,15 @@
     form {
       max-width: 800px;
       margin: auto;
-      background: linear-gradient(to bottom right, #1a1a1a, #0f0f0f);
+      background-color: #1a1a1a;
       padding: 2rem;
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(255, 0, 51, 0.3);
-      border: 1px solid transparent;
     }
 
-    .form-section { margin-bottom: 2rem; }
+    .form-section {
+      margin-bottom: 2rem;
+    }
 
     label {
       display: block;
@@ -56,13 +71,13 @@
 
     input, select, textarea {
       width: 100%;
-      padding: 0.6rem;
+      padding: 0.75rem;
       margin-top: 0.3rem;
-      background-color: #1a1a1a;
+      background-color: #0f0f0f;
       color: #fff;
       border: 1px solid #444;
-      border-radius: 4px;
-      transition: box-shadow 0.3s, border-color 0.3s;
+      border-radius: 6px;
+      font-size: 1rem;
     }
 
     input:focus, select:focus, textarea:focus {
@@ -75,42 +90,58 @@
       resize: vertical;
     }
 
-    .hidden { display: none; }
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .hidden {
+      display: none;
+    }
 
     button[type="submit"] {
       background-color: #ff0033;
       border: none;
-      padding: 0.8rem 1.5rem;
+      padding: 0.9rem 1.5rem;
       color: white;
       font-weight: bold;
-      border-radius: 5px;
+      border-radius: 6px;
       cursor: pointer;
       margin-top: 1rem;
-      transition: background 0.3s;
+      font-size: 1rem;
+      width: 100%;
     }
 
     button[type="submit"]:hover {
       background-color: #cc002a;
     }
-  .checkbox-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin-top: 0.5rem;
-}
 
-.checkbox-group label {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: normal;
-}
-</style>
+    .message-success {
+      text-align: center;
+      padding: 1rem;
+      font-size: 1rem;
+      color: #00ff99;
+    }
+
+    .message-error {
+      text-align: center;
+      padding: 1rem;
+      font-size: 1rem;
+      color: #ff0033;
+    }
+
+    @media (max-width: 600px) {
+      form { padding: 1rem; }
+      .page-title { font-size: 1.5rem; }
+    }
+  </style>
 </head>
 <body>
 
   <header>
-    <div style="font-weight: bold; color: white;">VANTACORE</div>
+    <div>VANTACORE</div>
     <nav>
       <a href="/index">Home</a>
       <a href="/about">About</a>
@@ -123,102 +154,54 @@
 
   <form id="contactForm">
     <div class="form-section">
-      <label>Name:</label>
-      <input type="text" name="name" required />
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
 
-      <label>Email:</label>
-      <input type="email" name="email" required />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
 
-      <label>Message:</label>
-      <textarea name="message"></textarea>
-
-      <div class="checkbox-group">
-  <label><input type="checkbox" id="ideaCheckbox" /> I have an idea I want to bring to life</label>
-</div>
-    </div>
-
-    <div id="ideaSection" class="form-section hidden">
-      <label>Type:</label>
-      <select id="ideaType" name="idea_type">
-        <option value="">--Select--</option>
-        <option value="Game">Game</option>
-        <option value="Application">Application</option>
-      </select>
-
-      <div id="gameFields" class="hidden">
-        <label>Console:</label>
-<div class="checkbox-group">
-  <label><input type="checkbox" name="game_platforms" value="PC" /> PC</label>
-  <label><input type="checkbox" name="game_platforms" value="Xbox" /> Xbox</label>
-  <label><input type="checkbox" name="game_platforms" value="PlayStation" /> PlayStation</label>
-  <label><input type="checkbox" name="game_platforms" value="Mobile" /> Mobile</label>
-</div>
-
-        <label>Timeframe:</label>
-        <input type="text" name="game_timeframe" />
-
-        <label>Budget:</label>
-        <select name="game_budget">
-          <option value="$0 – Hobby Passion Project">$0 – Hobby Passion Project</option>
-          <option value="$1,000 – $5,000">$1,000 – $5,000</option>
-          <option value="$5,000 – $15,000">$5,000 – $15,000</option>
-          <option value="$15,000+">$15,000+</option>
-        </select>
-
-        <label>Game Idea:</label>
-        <textarea name="game_idea"></textarea>
-
-        <p style="font-size: 0.8rem; color: #aaa;">
-          By submitting this idea, you acknowledge that VantaCore may assist in its development and, where applicable, may pursue publishing or commercialization efforts in collaboration with or on behalf of the original submitter.
-        </p>
-      </div>
-
-      <div id="appFields" class="hidden">
-        <label>Target Platforms:</label>
-        <label><input type="checkbox" name="app_platforms" value="Windows" /> Windows</label>
-        <label><input type="checkbox" name="app_platforms" value="Mac" /> Mac</label>
-        <label><input type="checkbox" name="app_platforms" value="Linux" /> Linux</label>
-        <label><input type="checkbox" name="app_platforms" value="Google Play" /> Google Play</label>
-        <label><input type="checkbox" name="app_platforms" value="Apple Store" /> Apple Store</label>
-
-        <label>What problem does the app solve?</label>
-        <textarea name="app_problem"></textarea>
-
-        <label>Budget:</label>
-        <select name="app_budget">
-          <option value="$5,000 – $10,000">$5,000 – $10,000</option>
-          <option value="$10,000 – $25,000">$10,000 – $25,000</option>
-          <option value="$25,000+">$25,000+</option>
-        </select>
-
-        <label>Application Details:</label>
-        <textarea name="app_details"></textarea>
-      </div>
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
     </div>
 
     <button type="submit">Submit</button>
+
+    <div id="formStatus"></div>
   </form>
 
   <script>
-    const ideaCheckbox = document.getElementById('ideaCheckbox');
-    const ideaSection = document.getElementById('ideaSection');
-    const ideaType = document.getElementById('ideaType');
-    const gameFields = document.getElementById('gameFields');
-    const appFields = document.getElementById('appFields');
+    document.getElementById("contactForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
 
-    ideaCheckbox.addEventListener('change', () => {
-      ideaSection.classList.toggle('hidden', !ideaCheckbox.checked);
-    });
+      const form = e.target;
+      const statusDiv = document.getElementById("formStatus");
 
-    ideaType.addEventListener('change', () => {
-      const value = ideaType.value;
-      gameFields.classList.toggle('hidden', value !== 'Game');
-      appFields.classList.toggle('hidden', value !== 'Application');
+      const formData = {
+        name: form.name.value,
+        email: form.email.value,
+        message: form.message.value,
+      };
+
+      try {
+        const response = await fetch("/submit-contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          statusDiv.innerHTML = `<div class="message-success">Message sent! We'll be in touch.</div>`;
+          form.reset();
+        } else {
+          statusDiv.innerHTML = `<div class="message-error">Error: ${result.error || "Try again later."}</div>`;
+        }
+      } catch (err) {
+        statusDiv.innerHTML = `<div class="message-error">Failed to send. Check your internet connection.</div>`;
+      }
     });
   </script>
-
-</body>
-</html>
 
 </body>
 </html>
