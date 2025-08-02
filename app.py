@@ -28,25 +28,7 @@ def services():
 
 @app.route('/projects')
 def get_projects():
-    response = supabase.table('projects').select("*").execute()
-    projects = response.data
-
-    grouped = {
-        "Professional Work": [],
-        "Hobby Projects": [],
-        "School Projects": []
-    }
-
-    for project in projects:
-        cat = project.get("category", "").lower()
-        if "professional" in cat:
-            grouped["Professional Work"].append(project)
-        elif "hobby" in cat:
-            grouped["Hobby Projects"].append(project)
-        elif "school" in cat:
-            grouped["School Projects"].append(project)
-
-    return render_template("projects.html", grouped_projects=grouped)
+    return render_template("projects.html")
 
 
 @app.route('/submit-contact', methods=['POST'])
@@ -91,3 +73,4 @@ if __name__ == '__main__':
     import os
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=False, host='0.0.0.0', port=port)
+
