@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 from supabase import create_client, Client
 import os
+import smtplib
 
 app = Flask(__name__)
 
@@ -33,36 +34,34 @@ def get_projects():
 
 @app.route('/submit-contact', methods=['POST'])
 def submit_contact():
-    form = request.form
+    data = request.get_json()
+    name = data.get("name")
+    email = data.get("email")
+    message = data.get("message")
 
-    data = {
-        "name": form.get("name"),
-        "email": form.get("email"),
-        "message": form.get("message"),
-        "wants_to_build": "idea_type" in form and form.get("idea_type") != "",
-        "idea_type": form.get("idea_type"),
-
-        # Game
-        "game_platforms": request.form.getlist("game_platforms"),
-        "game_timeframe": form.get("game_timeframe"),
-        "game_budget": form.get("game_budget"),
-        "game_idea": form.get("game_idea"),
-
-        # App
-        "app_platforms": request.form.getlist("app_platforms"),
-        "app_problem": form.get("app_problem"),
-        "app_budget": form.get("app_budget"),
-        "app_details": form.get("app_details"),
-    }
-
-    # Clean out empty/null fields
-    cleaned = {k: v for k, v in data.items() if v not in [None, "", [], "null"]}
+    # Compose email
+    subject = f"New VantaCore Contact: {name}"
+    body = f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}"
+    to_addr = "David.Simpson@vanta-core.com"
 
     try:
-        supabase.table("contact_submissions").insert(cleaned).execute()
-        return jsonify({"success": True}), 200
+        send_email(subject, body, to_addr)
+        return jsonify({"success": True})
     except Exception as e:
-        return jsonify({"success": False, "error": str(e)}), 500
+        return jsonify({"error": str(e)}), 500
+
+def send_email(subject, body, to_addr):
+    # Ideally use environment vars for these
+    from_addr = os.environ["SMTP_USER"]
+    password = os.environ["SMTP_PASS"]
+    smtp_server = os.environ.get("SMTP_SERVER", "smtp.office365.com")
+    port = 587
+
+    with smtplib.SMTP(smtp_server, port) as server:
+        server.starttls()
+        server.login(from_addr, password)
+        msg = f"Subject: {subject}\n\n{body}"
+        server.sendmail(from_addr, to_addr, msg)
 
 
 @app.route('/health')
@@ -73,4 +72,5 @@ if __name__ == '__main__':
     import os
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=False, host='0.0.0.0', port=port)
+
 
