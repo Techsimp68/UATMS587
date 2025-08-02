@@ -39,30 +39,30 @@ def submit_contact():
     email = data.get("email")
     message = data.get("message")
 
-    # Compose email
-    subject = f"New VantaCore Contact: {name}"
-    body = f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}"
-    to_addr = "David.Simpson@vanta-core.com"
+    subject = f"New Contact from {name}"
+    body = f"From: {name}\nEmail: {email}\n\nMessage:\n{message}"
 
     try:
-        send_email(subject, body, to_addr)
+        send_email(subject, body)
         return jsonify({"success": True})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-def send_email(subject, body, to_addr):
-    # Ideally use environment vars for these
-    from_addr = os.environ["SMTP_USER"]
-    password = os.environ["SMTP_PASS"]
-    smtp_server = os.environ.get("SMTP_SERVER", "smtp.office365.com")
-    port = 587
+def send_email(subject, body):
+    smtp_user = os.getenv("SMTP_USER")
+    smtp_pass = os.getenv("SMTP_PASS")
+    smtp_server = os.getenv("SMTP_SERVER", "smtp.zoho.com")
+    smtp_port = int(os.getenv("SMTP_PORT", 587))
 
-    with smtplib.SMTP(smtp_server, port) as server:
+    from_addr = smtp_user
+    to_addr = smtp_user  # send to yourself
+
+    message = f"Subject: {subject}\n\n{body}"
+
+    with smtplib.SMTP(smtp_server, smtp_port) as server:
         server.starttls()
-        server.login(from_addr, password)
-        msg = f"Subject: {subject}\n\n{body}"
-        server.sendmail(from_addr, to_addr, msg)
-
+        server.login(smtp_user, smtp_pass)
+        server.sendmail(from_addr, to_addr, message)
 
 @app.route('/health')
 def health_check():
@@ -72,5 +72,6 @@ if __name__ == '__main__':
     import os
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=False, host='0.0.0.0', port=port)
+
 
 
