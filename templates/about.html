@@ -69,9 +69,11 @@
     }
 
     .nav-logo {
-      height: 60px;
-      width: auto;
-    }
+  height: auto;
+  max-height: 100px;
+  max-width: 120px;
+  display: block;
+}
 
     .menu-toggle {
       display: none;
@@ -117,6 +119,11 @@
         left: 0;
         padding: 1rem;
         z-index: 999;
+        .nav-logo {
+  height: auto;
+  max-height: 80px;
+}
+
       }
 
       .nav-links.active {
@@ -190,3 +197,4 @@
   </script>
 </body>
 </html>
+
