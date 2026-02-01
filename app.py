@@ -1,15 +1,8 @@
 from flask import Flask, render_template, request, jsonify
-from supabase import create_client, Client
 import os
 import smtplib
 
 app = Flask(__name__)
-
-# Supabase credentials
-SUPABASE_URL = os.getenv("SUPABASE_URL")
-SUPABASE_KEY = os.getenv("SUPABASE_KEY")
-supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
-
 
 @app.route('/')
 @app.route('/index')
@@ -72,6 +65,7 @@ if __name__ == '__main__':
     import os
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=False, host='0.0.0.0', port=port)
+
 
 
 
